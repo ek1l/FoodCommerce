@@ -1,3 +1,3 @@
 export default function Burgers() {
-  return <h1>Pizzas</h1>
+  return <h1>Drinks</h1>
 }
