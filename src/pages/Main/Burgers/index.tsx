@@ -5,7 +5,7 @@ import { Snacks } from '../../../components/Snacks'
   const data = [
     {
       id: 1,
-      snack: 'burguer',
+      snack: 'burger',
       name: 'Mega',
       description:
         'O artesanal tamanho família recheado com três carnes suculentas, queijo e bacon',
@@ -15,8 +15,8 @@ import { Snacks } from '../../../components/Snacks'
 
     {
       id: 2,
-      snack: 'Extra Bacon',
-      name: 'Mega',
+      snack: 'burger',
+      name: 'Extra Bacon',
       description:
         'Criado para os amantes de bacon, possui em todas as suas camadas bacon bem assado e ainda queijo e carne',
       price: 23.5,
