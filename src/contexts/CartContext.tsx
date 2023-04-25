@@ -1,15 +1,13 @@
-import { createContext, useState, useEffect, ReactNode } from 'react'
+import { createContext, ReactNode, useState } from 'react'
+import { toast } from 'react-toastify'
+
 import { SnackData } from '../interfaces/SnackData'
+
+import { snackEmoji } from '../helpers/snackEmoji'
 
 interface Snack extends SnackData {
   quantity: number
   subtotal: number
-}
-
-interface updateCartProps {
-  id: number
-  snack: string
-  newQuantity: number
 }
 
 interface RemoveSnackFromCart {
@@ -17,16 +15,23 @@ interface RemoveSnackFromCart {
   snack: string
 }
 
+interface UpdateCartProps {
+  id: number
+  snack: string
+  newQuantity: number
+}
+
 interface CartContextProps {
   cart: Snack[]
   addSnackIntoCart: (snack: SnackData) => void
-  //   removeSnackFromCart: ({ id, snack }: RemoveSnackFromCart) => void
-  //   updateCart: ({ id, snack, newQuantity }: updateCartProps) => void
+  // removeSnackFromCart: ({ id, snack }: RemoveSnackFromCart) => void
+  // updateCart: ({ id, snack, newQuantity }: UpdateCartProps) => void
 }
 
 interface CartProviderProps {
   children: ReactNode
 }
+
 export const CartContext = createContext({} as CartContextProps)
 
 export function CartProvider({ children }: CartProviderProps) {
@@ -34,7 +39,6 @@ export function CartProvider({ children }: CartProviderProps) {
 
   function addSnackIntoCart(snack: SnackData): void {
     // buscar
-
     const snackExistentInCart = cart.find(
       (item) => item.snack === snack.snack && item.id === snack.id,
     )
@@ -51,16 +55,18 @@ export function CartProvider({ children }: CartProviderProps) {
 
         return item
       })
-      console.log(`newCart atualização`, newCart)
+
+      toast.success(`Outro(a) ${snackEmoji(snack.snack)} ${snack.name} adicionado nos pedidos!`)
       setCart(newCart)
+
       return
     }
+
     // adicionar
-
     const newSnack = { ...snack, quantity: 1, subtotal: snack.price }
-    const newCart = [...cart, newSnack]
+    const newCart = [...cart, newSnack] // push de um array
 
-    console.log(`newCart adição`, newCart)
+    toast.success(`${snackEmoji(snack.snack)} ${snack.name} adicionado nos pedidos!`)
     setCart(newCart)
   }
 
