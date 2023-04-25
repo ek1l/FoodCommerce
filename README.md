@@ -25,20 +25,7 @@ NodeJS / Json
 - HTML / CSS / JS / TypeScript / ReactJs
 # Como executar o projeto
 
-## Back end
-Pré-requisitos: NodeJs
-
-```bash
-# clonar repositório
-git clone https://github.com/ek1l/food-commerce-dev.g
-
-
-
-# executar o projeto
-npm start
-```
-
-## Front end web
+## PROJETO:
 Pré-requisitos: npm / yarn
 
 ```bash
