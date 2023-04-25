@@ -19,8 +19,8 @@ A aplicação permite que os clientes visualizem o cardápio completo do estabel
 
 # Tecnologias utilizadas
 ## Back end
-NodeJS
-Json
+NodeJS / Json
+
 ## Front end
 - HTML / CSS / JS / TypeScript / ReactJs
 # Como executar o projeto
@@ -32,8 +32,7 @@ Pré-requisitos: NodeJs
 # clonar repositório
 git clone https://github.com/ek1l/food-commerce-dev.g
 
-# entrar na pasta do projeto back end
-cd .\food-commerce-dev\
+
 
 # executar o projeto
 npm start
@@ -46,8 +45,8 @@ Pré-requisitos: npm / yarn
 # clonar repositório
 git clone https://github.com/devsuperior/sds1-wmazoni
 
-# entrar na pasta do projeto front end web
-cd front-web
+# entrar na pasta do projeto 
+cd .\food-commerce-dev\
 
 # instalar dependências
 npm install
