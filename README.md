@@ -25,7 +25,6 @@ NodeJS / Json
 - HTML / CSS / JS / TypeScript / ReactJs
 # Como executar o projeto
 
-## PROJETO:
 Pré-requisitos: npm / yarn
 
 ```bash
