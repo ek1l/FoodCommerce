@@ -18,11 +18,8 @@ A aplicação permite que os clientes visualizem o cardápio completo do estabel
 
 
 # Tecnologias utilizadas
-## Back end
-NodeJS / Json
 
-## Front end
-- HTML / CSS / JS / TypeScript / ReactJs / Context API /Redux
+- HTML / CSS / JS / TypeScript / ReactJs / Context API /Redux / NodeJS / Json
 # Como executar o projeto
 
 Pré-requisitos: npm / yarn
