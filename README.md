@@ -36,6 +36,7 @@ npm install
 
 # executar o projeto
 npm start
+npm run json-server
 ```
 
 # Autor
