@@ -35,6 +35,8 @@ export function CartProvider({ children }: CartProviderProps) {
     function addSnackIntoCart(snack: SnackData): void {
         const newSnack = { ...snack, quantity: 1, subtotal: snack.price }
         const newCart = [...cart, newSnack]
+      console.log(`newCart`, newCart)
+
         setCart(newCart)
     }
 
