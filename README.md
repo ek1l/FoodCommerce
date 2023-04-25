@@ -22,7 +22,7 @@ A aplicação permite que os clientes visualizem o cardápio completo do estabel
 NodeJS / Json
 
 ## Front end
-- HTML / CSS / JS / TypeScript / ReactJs
+- HTML / CSS / JS / TypeScript / ReactJs / Context API /Redux
 # Como executar o projeto
 
 Pré-requisitos: npm / yarn
