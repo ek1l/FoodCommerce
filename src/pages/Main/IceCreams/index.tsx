@@ -6,10 +6,11 @@ import { SnackTitle } from '../../../components/SnackTitle'
 
 import { getIceCreams } from '../../../services/api'
 import { SnackData } from '../../../interfaces/SnackData'
+import { useSnack } from '../../../hooks/useSnack'
 
 
 export default function iceCreams() {
-  const { iceCreams } = useContext(SnackContext)
+  const { iceCreams } =  useSnack()
 
   return (
     <>

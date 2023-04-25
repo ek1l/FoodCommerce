@@ -6,9 +6,10 @@ import { SnackTitle } from '../../../components/SnackTitle'
 
 import { getPizzas } from '../../../services/api'
 import { SnackData } from '../../../interfaces/SnackData'
+import { useSnack } from '../../../hooks/useSnack'
 
 export default function Pizzas() {
-  const { pizzas } = useContext(SnackContext)
+  const { pizzas } =  useSnack()
 
   return (
     <>
