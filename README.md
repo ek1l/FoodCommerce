@@ -26,7 +26,7 @@ Pré-requisitos: npm / yarn
 
 ```bash
 # clonar repositório
-git clone https://github.com/devsuperior/sds1-wmazoni
+git clone https://github.com/ek1l/food-commerce-dev.git
 
 # entrar na pasta do projeto 
 cd .\food-commerce-dev\
