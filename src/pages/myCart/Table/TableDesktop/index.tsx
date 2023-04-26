@@ -6,7 +6,7 @@ import { Container } from './styles'
 import { FaTrashAlt } from 'react-icons/fa'
 
 export function TableDesktop() {
-  const { cart, removeSnackFromCart } = useCart()
+  const { cart, removeSnackFromCart, snackCartIncrement, snackCartDecrement } = useCart()
   return (
     <Container>
       <table>
@@ -31,11 +31,11 @@ export function TableDesktop() {
               </td>
               <td>
                 <div>
-                  <button type='button' onClick={() => console.log(`Decrementar snack`, item)}>
+                  <button type='button' onClick={() => snackCartDecrement(item)}>
                     <img src={minusImg} alt='Remover quantidade' />
                   </button>
                   <span>{`${item.quantity}`.padStart(2, '0')}</span>
-                  <button type='button' onClick={() => console.log(`Aumentar snack`, item)}>
+                  <button type='button' onClick={() => snackCartIncrement(item)}>
                     <img src={plusImg} alt='Adicionar quantidade' />
                   </button>
                 </div>
@@ -45,9 +45,7 @@ export function TableDesktop() {
               </td>
               <td>
                 <button type='button' onClick={() => removeSnackFromCart(item)}>
-
-
-                <FaTrashAlt />
+                  <FaTrashAlt />
                 </button>
               </td>
             </tr>
