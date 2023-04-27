@@ -2,8 +2,6 @@
 
 # Sobre o projeto
 
-https://food-commerce-dev.pages.dev/
-
 Food Commerce é uma aplicação full stack web e mobile construída com React, que funciona como um cardápio virtual para restaurantes e estabelecimentos de alimentação. Ela foi desenvolvida como um Progressive Web App (PWA), o que significa que pode ser instalada no celular do usuário como um aplicativo nativo.
 
 A aplicação permite que os clientes visualizem o cardápio completo do estabelecimento, com descrições detalhadas e imagens dos pratos. Eles também podem selecionar os itens desejados, adicionar ao carrinho e finalizar o pedido diretamente pelo app. Além disso, a aplicação permite que o usuário personalize alguns aspectos do pedido, como a quantidade de ingredientes ou opções de preparo.
