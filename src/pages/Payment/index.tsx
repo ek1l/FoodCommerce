@@ -1,31 +1,61 @@
+import { yupResolver } from '@hookform/resolvers/yup'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import * as yup from 'yup'
+
 import { Head } from '../../components/Head'
+import { PayOrder } from '../../components/OrderCloseAction/PayOrder'
 import { OrderHeader } from '../../components/OrderHeader'
-import { PayOder } from '../../components/OrderCloseAction/PayOrder'
+
 import { Container, Form, Inner } from './styles'
 
+const schema = yup
+  .object({
+    fullName: yup
+      .string()
+      .required('Nome e sobrenome são obrigatórios.')
+      .min(3, 'Nome e sobrenome muito curto.'),
+    email: yup.string().email().required(),
+    mobile: yup.string().required(),
+  })
+  .required()
+
+type FieldValues = yup.InferType<typeof schema>
+
 export default function Payment() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FieldValues>({
+    resolver: yupResolver(schema),
+  })
+  const onSubmit: SubmitHandler<FieldValues> = (data) => console.log('data', data)
+
   return (
     <Container>
       <Head title='Pagamento' />
       <OrderHeader />
       <Inner>
-        <Form>
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <h4>Informações pessoais</h4>
 
           <div className='field'>
-            <label htmlFor='full-name'>Nome e sobrenome</label>
-            <input type='text' id='full-name' name='full-name' autoComplete='name' />
+            <label htmlFor='fullName'>Nome e sobrenome</label>
+            <input type='text' id='fullName' autoComplete='name' {...register('fullName')} />
+            {errors.fullName && <p className='error'>{errors.fullName.message}</p>}
           </div>
 
           <div className='grouped'>
             <div className='field'>
               <label htmlFor='email'>E-mail</label>
-              <input type='email' name='email' id='email' autoComplete='email' />
+              <input type='email' id='email' autoComplete='email' {...register('email')} />
+              {errors.email && <p className='error'>{errors.email.message}</p>}
             </div>
 
             <div className='field'>
               <label htmlFor='mobile'>Celular</label>
-              <input type='tel' id='mobile' name='mobile' autoComplete='phone' />
+              <input type='tel' id='mobile' autoComplete='phone' {...register('mobile')} />
+              {errors.mobile && <p className='error'>{errors.mobile.message}</p>}
             </div>
 
             <div className='field'>
@@ -153,8 +183,8 @@ export default function Payment() {
               />
             </div>
           </div>
+          <PayOrder />
         </Form>
-        <PayOder />
       </Inner>
     </Container>
   )
