@@ -1,5 +1,7 @@
 import { Skeleton } from '../../Skeleton'
-import { Container } from '../styles'
+
+import { Container } from './styles'
+
 export function SkeletonSnack() {
   return (
     <div className='skeleton-wrapper'>
@@ -7,6 +9,8 @@ export function SkeletonSnack() {
         <Skeleton type='title' />
         <Skeleton type='thumbnail' />
         <Skeleton type='text' />
+        <Skeleton type='text' />
+
         <div>
           <Skeleton type='title' />
           <Skeleton type='image' />
