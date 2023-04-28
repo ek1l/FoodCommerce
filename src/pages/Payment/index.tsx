@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { Controller, SubmitHandler, useForm } from 'react-hook-form'
+import { IMaskInput } from 'react-imask'
 import * as yup from 'yup'
 
 import { Head } from '../../components/Head'
@@ -23,6 +24,7 @@ type FieldValues = yup.InferType<typeof schema>
 
 export default function Payment() {
   const {
+    control,
     register,
     handleSubmit,
     formState: { errors },
@@ -41,20 +43,48 @@ export default function Payment() {
 
           <div className='field'>
             <label htmlFor='fullName'>Nome e sobrenome</label>
-            <input type='text' id='fullName' autoComplete='name' {...register('fullName')} />
+
+            <Controller
+              name='fullName'
+              control={control}
+              render={({ field }) => (
+                <input type='text' id='fullName' autoComplete='name' {...field} />
+              )}
+            />
+
             {errors.fullName && <p className='error'>{errors.fullName.message}</p>}
           </div>
 
           <div className='grouped'>
             <div className='field'>
               <label htmlFor='email'>E-mail</label>
-              <input type='email' id='email' autoComplete='email' {...register('email')} />
+
+              <Controller
+                name='email'
+                control={control}
+                render={({ field }) => (
+                  <input type='text' id='email' autoComplete='email' {...field} />
+                )}
+              />
+
               {errors.email && <p className='error'>{errors.email.message}</p>}
             </div>
 
             <div className='field'>
               <label htmlFor='mobile'>Celular</label>
-              <input type='tel' id='mobile' autoComplete='phone' {...register('mobile')} />
+              <Controller
+                name='mobile'
+                control={control}
+                render={({ field }) => (
+                  <IMaskInput
+                    type='tel'
+                    id='mobile'
+                    autoComplete='phone'
+                    mask={'(00) 90000-0000'}
+                    {...field}
+                  />
+                )}
+              />
               {errors.mobile && <p className='error'>{errors.mobile.message}</p>}
             </div>
 
