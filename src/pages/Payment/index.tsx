@@ -6,7 +6,7 @@ import { Head } from '../../components/Head'
 import { PayOrder } from '../../components/OrderCloseAction/PayOrder'
 import { OrderHeader } from '../../components/OrderHeader'
 
-import { FieldValues, schema } from './ValidationSchema'
+import { FieldValues, schema } from './validationSchema'
 
 import { Container, Form, Inner } from './styles'
 
