@@ -32,12 +32,20 @@ const localStorageKey = '@FoodCommerce:cart'
 
 export function CartProvider({ children }: CartProviderProps) {
   const navigate = useNavigate()
-  const [cart, setCart] = useState<Snack[]>([])
+  const [cart, setCart] = useState<Snack[]>(() => {
+  const value = localStorage.getItem(localStorageKey)
+    if(value) return JSON.parse(value)
+    return []
+  })
 
 
   function saveCart(items: Snack[]) {
     setCart(items)
     localStorage.setItem(localStorageKey, JSON.stringify(items))
+  }
+
+  function clearCart() {
+    localStorage.removeItem(localStorageKey)
   }
 
   function addSnackIntoCart(snack: SnackData): void {
@@ -115,6 +123,8 @@ export function CartProvider({ children }: CartProviderProps) {
 
   function payOrder(customer: CustomerData) {
     console.log('payOrder', cart, customer)
+    // chamada de API para o backend
+    clearCart() // deve ser executado após o retorno positivo da API
     return  
   }
 
