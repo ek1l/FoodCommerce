@@ -5,4 +5,5 @@ export interface SnackData {
     description: string
     image: string
     price: number
-}
+  }
+  

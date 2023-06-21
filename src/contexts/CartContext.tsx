@@ -2,15 +2,12 @@ import { createContext, ReactNode, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
+import { CustomerData } from '../interfaces/CustomerData'
 import { SnackData } from '../interfaces/SnackData'
 
 import { snackEmoji } from '../helpers/snackEmoji'
-import { CustomerData } from '../interfaces/CustomerData'
-
-interface Snack extends SnackData {
-  quantity: number
-  subtotal: number
-}
+import { Snack } from '../interfaces/Snack'
+import { processCheckout } from '../services/api'
 
 interface CartContextProps {
   cart: Snack[]
@@ -33,11 +30,11 @@ const localStorageKey = '@FoodCommerce:cart'
 export function CartProvider({ children }: CartProviderProps) {
   const navigate = useNavigate()
   const [cart, setCart] = useState<Snack[]>(() => {
-  const value = localStorage.getItem(localStorageKey)
-    if(value) return JSON.parse(value)
+    const value = localStorage.getItem(localStorageKey)
+    if (value) return JSON.parse(value)
+
     return []
   })
-
 
   function saveCart(items: Snack[]) {
     setCart(items)
@@ -68,8 +65,6 @@ export function CartProvider({ children }: CartProviderProps) {
       toast.success(`Outro(a) ${snackEmoji(snack.snack)} ${snack.name} adicionado nos pedidos!`)
       saveCart(newCart)
 
-      
-
       return
     }
 
@@ -82,6 +77,7 @@ export function CartProvider({ children }: CartProviderProps) {
 
   function removeSnackFromCart(snack: Snack) {
     const newCart = cart.filter((item) => !(item.id === snack.id && item.snack === snack.snack))
+
     saveCart(newCart)
   }
 
@@ -118,14 +114,27 @@ export function CartProvider({ children }: CartProviderProps) {
   }
 
   function confirmOrder() {
-    return navigate('/payment')
+    navigate('/payment')
   }
 
-  function payOrder(customer: CustomerData) {
+  async function payOrder(customer: CustomerData) {
     console.log('payOrder', cart, customer)
-    // chamada de API para o backend
-    clearCart() // deve ser executado após o retorno positivo da API
-    return  
+
+    try {
+      const response = await processCheckout(cart, customer)
+      if (response.data.status !== 'PAID') {
+        toast.error('Erro ao processar o pagamento, por favor, tente novamente mais tarde.')
+        return
+      }
+
+      toast.success('Pagamento realizado com sucesso!')
+      clearCart()
+    } catch (error) {
+      console.error(error)
+      toast.error('Erro ao processar o pedido')
+    }
+
+    return
   }
 
   return (
