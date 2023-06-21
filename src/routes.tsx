@@ -1,12 +1,15 @@
-import { Routes, Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 import MainPage from './pages/Main'
 import BurgersPage from './pages/Main/Burgers'
-import PizzasPage from './pages/Main/Pizzas'
 import DrinksPage from './pages/Main/Drinks'
 import IceCreamsPage from './pages/Main/IceCreams'
+import PizzasPage from './pages/Main/Pizzas'
+
 import MyCartPage from './pages/myCart'
-import Payment from './pages/Payment'
+import OrderSuccessPage from './pages/Orders/Sucess'
+import PaymentPage from './pages/Payment'
+
 export function AppRoutes() {
   return (
     <Routes>
@@ -17,7 +20,10 @@ export function AppRoutes() {
         <Route path='ice-creams' element={<IceCreamsPage />} />
       </Route>
       <Route path='cart' element={<MyCartPage />} />
-      <Route path='payment' element={<Payment />} />
+      <Route path='payment' element={<PaymentPage />} />
+      <Route path='order'>
+        <Route path='success/:orderId' element={<OrderSuccessPage />} />
+      </Route>
     </Routes>
   )
 }

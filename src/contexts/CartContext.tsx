@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { CustomerData } from '../interfaces/CustomerData'
+import { Snack } from '../interfaces/Snack'
 import { SnackData } from '../interfaces/SnackData'
 
 import { snackEmoji } from '../helpers/snackEmoji'
-import { Snack } from '../interfaces/Snack'
 import { processCheckout } from '../services/api'
 
 interface CartContextProps {
@@ -118,22 +118,21 @@ export function CartProvider({ children }: CartProviderProps) {
   }
 
   async function payOrder(customer: CustomerData) {
-    console.log('payOrder', cart, customer)
-
     try {
       const response = await processCheckout(cart, customer)
+
       if (response.data.status !== 'PAID') {
         toast.error('Erro ao processar o pagamento, por favor, tente novamente mais tarde.')
         return
       }
 
-      toast.success('Pagamento realizado com sucesso!')
       clearCart()
+
+      navigate(`/order/success/${response.data.id}`)
     } catch (error) {
       console.error(error)
-      toast.error('Erro ao processar o pedido')
+      toast.error('Erro ao processar o pedido.')
     }
-
     return
   }
 
