@@ -8,7 +8,7 @@ import PizzasPage from './pages/Main/Pizzas'
 
 import MyCartPage from './pages/myCart'
 import OrderSuccessPage from './pages/Orders/Sucess'
-import PaymentPage from './pages/Payment'
+// import PaymentPage from './pages/Payment'
 
 export function AppRoutes() {
   return (
@@ -20,7 +20,6 @@ export function AppRoutes() {
         <Route path='ice-creams' element={<IceCreamsPage />} />
       </Route>
       <Route path='cart' element={<MyCartPage />} />
-      <Route path='payment' element={<PaymentPage />} />
       <Route path='order'>
         <Route path='success/:orderId' element={<OrderSuccessPage />} />
       </Route>
