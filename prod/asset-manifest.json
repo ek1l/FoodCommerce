@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.98ec47ca.css",
+    "main.js": "/static/js/main.4cab3c18.js",
+    "static/js/787.18dd5cbe.chunk.js": "/static/js/787.18dd5cbe.chunk.js",
+    "static/media/man-and-burger.svg": "/static/media/man-and-burger.088b4009546779e5c81243fdfd47a611.svg",
+    "static/media/logo.svg": "/static/media/logo.5834db132193e81dc61c0bfc6b2038ab.svg",
+    "static/media/pizza.svg": "/static/media/pizza.5c9a047129ab40315d41ec6daf4eee7b.svg",
+    "static/media/burger.svg": "/static/media/burger.02f6a132102fed92484b8201dba4ab52.svg",
+    "static/media/soda.svg": "/static/media/soda.90b7c9b8b984b32647fc612bfcb3a4d5.svg",
+    "static/media/ice-cream.svg": "/static/media/ice-cream.3a6a0133a80b8d9bc5d5ff127ca70052.svg",
+    "static/media/shopping-cart.svg": "/static/media/shopping-cart.25d65fd4129d9dc579d2b101ff86f6aa.svg",
+    "index.html": "/index.html",
+    "static/media/circle-plus.svg": "/static/media/circle-plus.001449881836016a4e97be030ba805a4.svg",
+    "static/media/circle-minus.svg": "/static/media/circle-minus.3d63ec4f41e86a2f236b092eda5375ad.svg",
+    "static/media/menu.svg": "/static/media/menu.84f2d6de86bf1c8f59292b480bb931ba.svg",
+    "main.98ec47ca.css.map": "/static/css/main.98ec47ca.css.map",
+    "main.4cab3c18.js.map": "/static/js/main.4cab3c18.js.map",
+    "787.18dd5cbe.chunk.js.map": "/static/js/787.18dd5cbe.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.98ec47ca.css",
+    "static/js/main.4cab3c18.js"
+  ]
+}
