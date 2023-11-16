@@ -5,15 +5,13 @@ import { currencyFormat } from '../../../helpers/currencyFormat'
 import { Container } from '../styles'
 
 export function ConfirmOrder() {
-  const { cart, confirmOrder } = useCart()
-
+  const { cart } = useCart()
   const totalAmount = cart.reduce((acc, item) => (acc += item.subtotal), 0)
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
 
   return (
     <Container>
-      <button type='button' onClick={confirmOrder}>
-        Finalizar Pedido
-      </button>
+      <button>Finalizar Pedido</button>
       <span>
         Total <strong>{currencyFormat(totalAmount)}</strong>
       </span>

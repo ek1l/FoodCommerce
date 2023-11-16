@@ -8,7 +8,6 @@ import PizzasPage from './pages/Main/Pizzas'
 
 import MyCartPage from './pages/myCart'
 import OrderSuccessPage from './pages/Orders/Sucess'
-// import PaymentPage from './pages/Payment'
 
 export function AppRoutes() {
   return (

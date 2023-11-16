@@ -1,4 +1,4 @@
-import { useCart } from '../../../hooks/useCart'
+import { useCart } from '../../../hooks/useCart' 
 
 import { currencyFormat } from '../../../helpers/currencyFormat'
 

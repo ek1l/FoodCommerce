@@ -114,7 +114,10 @@ export function CartProvider({ children }: CartProviderProps) {
   }
 
   function confirmOrder() {
-    navigate('/payment')
+    alert('Compra realizada com sucesso!')
+    setTimeout(() => {
+      navigate('/')
+    })
   }
 
   async function payOrder(customer: CustomerData) {
